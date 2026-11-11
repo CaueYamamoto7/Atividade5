@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms UNIFIL</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+    }
+    .formulario {
+      width: 100%;
+      max-width: 600px;
+      padding: 32px;
+      border-radius: 16px;
+      background-color: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin-top: 0;
+      text-align: center;
+      color: #263238;
+    }
+    .campo {
+      margin-bottom: 18px;
+    }
+    label,
+    legend {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #37474f;
+    }
+    input:not([type="radio"]):not([type="checkbox"]),
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #b0bec5;
+      border-radius: 8px;
+      font: inherit;
+      background-color: #fff;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid #1976d2;
+      outline-offset: 2px;
+      border-color: #1976d2;
+    }
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+    fieldset {
+      margin: 0 0 18px;
+      padding: 14px;
+      border: 1px solid #b0bec5;
+      border-radius: 8px;
+    }
+    .opcoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+    }
+    .opcoes label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+    .botoes {
+      display: flex;
+      gap: 12px;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      border: 0;
+      border-radius: 8px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    button[type="submit"] {
+      color: #fff;
+      background-color: #1976d2;
+    }
+    button[type="reset"] {
+      color: #263238;
+      background-color: #cfd8dc;
+    }
+    button[type="submit"]:hover {
+      background-color: #0d47a1;
+      transform: translateY(-2px);
+    }
+    button[type="reset"]:hover {
+      background-color: #b0bec5;
+      transform: translateY(-2px);
+    }
+    button:focus {
+      outline: 2px solid #1976d2;
+      outline-offset: 2px;
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 12px;
+      }
+      .formulario {
+        padding: 20px;
+      }
+      .botoes {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="formulario">
+    <h1>Forms UNIFIL</h1>
+    <form action="#" method="post" enctype="multipart/form-data">
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" minlength="6" required>
+      </div>
+
+      <div class="campo">
+        <label for="nascimento">Data de nascimento</label>
+        <input type="date" id="nascimento" name="nascimento" required>
+      </div>
+
+      <div class="campo">
+        <label for="curso">Curso</label>
+        <select id="curso" name="curso" required>
+          <option value="" disabled selected>Selecione um curso</option>
+          <option value="administracao">Engenharia de Software</option>
+          <option value="design">Ciencia da Computação</option>
+          <option value="informatica">ADS</option>
+          <option value="marketing">Redes</option>
+        </select>
+      </div>
+
+      <fieldset>
+        <legend>Sexo</legend>
+        <div class="opcoes">
+          <label><input type="radio" name="sexo" value="feminino"> Feminino</label>
+          <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+          <label><input type="radio" name="sexo" value="outro"> Outro</label>
+          <label><input type="radio" name="sexo" value="nao_informar"> Prefiro não informar</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Interesses</legend>
+        <div class="opcoes">
+          <label><input type="checkbox" name="interesses" value="tecnologia"> Cybersegurança</label>
+          <label><input type="checkbox" name="interesses" value="arte"> Desenvolvimento Web</label>
+          <label><input type="checkbox" name="interesses" value="esportes"> DevSecOps</label>
+          <label><input type="checkbox" name="interesses" value="musica"> QA Tester</label>
+        </div>
+      </fieldset>
+
+      <div class="campo">
+        <label for="comentarios">Comentários</label>
+        <textarea id="comentarios" name="comentarios" placeholder="Escreva seus comentários aqui"></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="foto">Upload de foto</label>
+        <input type="file" id="foto" name="foto" accept="image/*">
+      </div>
+
+      <div class="botoes">
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpar</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
